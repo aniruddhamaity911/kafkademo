@@ -1,0 +1,4 @@
+[2026-09-20 19:12:50,735] INFO [BrokerServer id=3] Transition from STARTED to SHUTTING_DOWN (kafka.server.BrokerServer)
+[2026-09-20 19:12:50,740] INFO [BrokerServer id=3] shutting down (kafka.server.BrokerServer)
+[2026-09-20 19:12:50,743] INFO [BrokerLifecycleManager id=3] Beginning controlled shutdown. (kafka.server.BrokerLifecycleManager)
+[2026-09-20 19:12:50,815] INFO [BrokerLifecycleManager id=3] The broker is in PENDING_CONTROLLED_SHUTDOWN state, still waiting for the active controller. (kafka.server.BrokerLifecycleManager)

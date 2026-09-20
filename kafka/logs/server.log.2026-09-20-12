@@ -1,0 +1,3 @@
+[2026-09-20 13:03:39,720] INFO [RaftManager id=2] Node -3 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2026-09-20 13:03:40,418] INFO [NodeToControllerChannelManager id=1 name=registration] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient)
+[2026-09-20 13:03:40,621] INFO [NodeToControllerChannelManager id=2 name=registration] Node 1 disconnected. (org.apache.kafka.clients.NetworkClient)

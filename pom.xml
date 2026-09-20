@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Spring Boot Starter -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.8</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!-- Master GAV Coordinates -->
+    <groupId>com.kafkademo</groupId>
+    <artifactId>kafkademo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- MUST BE 'pom' FOR A MULTI-MODULE ROOT -->
+    <packaging>pom</packaging>
+    <name>kafkademo</name>
+
+    <!-- List directory names of the 3 child projects -->
+    <modules>
+        <module>kafkaproducer</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <!-- Define shared dependencies or version management here if needed -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Example: Centralize version numbers across modules -->
+        </dependencies>
+    </dependencyManagement>
+</project>

@@ -1,0 +1,2 @@
+[2026-09-20 12:53:46,325] INFO [Broker id=1] Transitioning 1 partition(s) to local leaders. (state.change.logger)
+[2026-09-20 12:53:46,344] INFO [Broker id=1] Creating new partition topic1-0 with topic id LG1dSp6gRWiLdQsgmwkzuQ. (state.change.logger)
