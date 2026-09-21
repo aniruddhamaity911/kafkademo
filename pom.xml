@@ -25,6 +25,7 @@
     <!-- List directory names of the 3 child projects -->
     <modules>
         <module>kafkaproducer</module>
+        <module>kafkaconsumer</module>
     </modules>
 
     <properties>

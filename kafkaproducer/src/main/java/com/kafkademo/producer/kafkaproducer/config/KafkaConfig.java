@@ -72,7 +72,7 @@ public class KafkaConfig {
 
     @Bean
     NewTopic createTopic() {
-        return TopicBuilder.name("product-created-events-topic")
+        return TopicBuilder.name("product-created-event-topic")
                 .partitions(3)
                 .replicas(3)
                 .configs(Map.of("min.insync.replicas","2"))
