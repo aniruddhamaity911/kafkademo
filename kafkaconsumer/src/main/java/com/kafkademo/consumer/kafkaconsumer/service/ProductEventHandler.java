@@ -1,6 +1,7 @@
 package com.kafkademo.consumer.kafkaconsumer.service;
 
 import com.kafkademo.consumer.kafkaconsumer.entity.ProductEvent;
+import com.kafkademo.consumer.kafkaconsumer.errorhandeling.NorRetryableException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
@@ -14,6 +15,9 @@ public class ProductEventHandler {
 
     @KafkaHandler
     private void handle(ProductEvent event){
+        if(event.getId() == null || event.getId().equals("")|| event.getId().isEmpty()){
+            throw new NorRetryableException("id is empty");
+        }
         LOG.info("{} event is arrived",event);
 
     }

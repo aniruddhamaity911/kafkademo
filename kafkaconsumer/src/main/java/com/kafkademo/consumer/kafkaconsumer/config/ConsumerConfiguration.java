@@ -1,11 +1,17 @@
 package com.kafkademo.consumer.kafkaconsumer.config;
 
+import com.kafkademo.consumer.kafkaconsumer.errorhandeling.NorRetryableException;
+
+import com.kafkademo.consumer.kafkaconsumer.errorhandeling.ReTryableException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import org.springframework.core.retry.RetryException;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.util.backoff.FixedBackOff;
+
 
 @Configuration
 public class ConsumerConfiguration {
@@ -17,6 +23,9 @@ public class ConsumerConfiguration {
 
         FixedBackOff backOff = new FixedBackOff(1000L, 2);
 
-        return new DefaultErrorHandler(recoverer, backOff);
+        DefaultErrorHandler errorHandler = new DefaultErrorHandler(recoverer, backOff);
+        errorHandler.addNotRetryableExceptions(NorRetryableException.class);
+        errorHandler.addRetryableExceptions(ReTryableException.class);
+        return errorHandler;
     }
 }
