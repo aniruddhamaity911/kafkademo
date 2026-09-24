@@ -6,6 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.handler.annotation.Header;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,11 +17,12 @@ public class ProductEventHandler {
     private static  final Logger LOG = LoggerFactory.getLogger(ProductEventHandler.class);
 
     @KafkaHandler
-    private void handle(ProductEvent event){
+    private void handle(@Payload ProductEvent event,@Header("messageId") String messageId,
+                        @Header(KafkaHeaders.RECEIVED_KEY) String messageKey){
         if(event.getId() == null || event.getId().equals("")|| event.getId().isEmpty()){
             throw new NorRetryableException("id is empty");
         }
-        LOG.info("{} event is arrived",event);
+        LOG.info("{} event is arrived with key {} and id {}",event,messageKey,messageId);
 
     }
 //    @KafkaHandler
